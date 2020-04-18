@@ -2,7 +2,7 @@
 USE champions_league;
 
 -- Left Outer join takes all the records from table A and table B on which the condition is met and also the records from table A where condition is not met too --
--- These join exclude all the records from result where condition is not met from table A but includes records from table A even if condition is not met --
+-- This join exclude all the records from result where condition is not met from table B but includes records from table A even if condition is not met --
 
 -- Left Outer Join --
 -- SELECT <COLUMN_NAME> FROM <NAME_OF_TABLE1> LEFT JOIN <NAME_OF_TABLE2>
@@ -16,4 +16,5 @@ ON teams.team_id = players.team_id;
 SELECT team_name, country, IFNULL(player_name, 'No Player Available') FROM teams LEFT JOIN players
 ON teams.team_id = players.team_id;
 
+-- NOTE: We can avoid using OUTER word in LEFT JOIN as its implied --
 -- NOTE: We can still do all the group by, order by, etc things on joins --
