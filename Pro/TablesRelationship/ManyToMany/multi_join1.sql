@@ -12,3 +12,8 @@ SELECT player_name, MAX(expected_recovery_date) as ERD
 FROM players JOIN current_injuries ON players.player_id = current_injuries.player_id
 GROUP BY players.player_id
 ORDER BY ERD DESC;
+
+-- Find players who has no injuries --
+SELECT player_name FROM players LEFT JOIN current_injuries
+ON players.player_id = current_injuries.player_id
+WHERE severity IS NULL;
